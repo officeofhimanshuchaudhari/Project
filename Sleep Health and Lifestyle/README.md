@@ -24,8 +24,19 @@ The Data Set is downloaded from the **Kaggle**
 
 
 ## Tools used for the Data Analysis :
-* Excel
-* Python (Pandas) : For Data Preparation and cleaning purpose.
-* PowerBi : For the Visualisation purpose.
-* PowerPoint : For presentation purpose.
+* **Excel**
+* **Python (Pandas)** : For Data Preparation and cleaning purpose.
+* **PowerBi** : For the Visualisation purpose.
+* **PowerPoint** : For presentation purpose.
 
+## Data Cleaning / Preparation :
+```
+# Import The Standard Libraries
+import pandas as pd
+import numpy as np
+```
+```
+# Load the Data using pandas read function
+df=pd.read_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Sleep_Health_and_lifestyle/Data Sets/Sleep_health_and_lifestyle_dataset.csv")
+df.head()
+```
