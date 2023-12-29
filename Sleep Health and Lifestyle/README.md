@@ -21,3 +21,11 @@ The Sleep Health and Lifestyle Dataset comprises 400 rows and 13 columns, coveri
 
 ## Data Source : [Original Datase](https://github.com/himanshucgithub/Files/blob/main/End%20to%20End%20Projects/Sleep%20Health%20and%20Lifestyle/Sleep_Health_and_Lifestyle/Original%20Data%20set/Sleep_health_and_lifestyle_dataset.csv)
 The Data Set is downloaded from the **Kaggle**
+
+
+## Tools used for the Data Analysis :
+* Excel
+* Python (Pandas) : For Data Preparation and cleaning purpose.
+* PowerBi : For the Visualisation purpose.
+* PowerPoint : For presentation purpose.
+
