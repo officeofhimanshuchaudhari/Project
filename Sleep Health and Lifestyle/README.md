@@ -40,3 +40,42 @@ import numpy as np
 df=pd.read_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Sleep_Health_and_lifestyle/Data Sets/Sleep_health_and_lifestyle_dataset.csv")
 df.head()
 ```
+
+![Screenshot 2023-12-29 180756](https://github.com/himanshucgithub/Project/assets/112814361/ca998876-ee30-494e-b4f1-08ed2dac636d)
+
+```
+# Exploring the Data Set
+df.info()
+```
+
+![image](https://github.com/himanshucgithub/Project/assets/112814361/edadbaf8-6322-4469-b933-8693d164f585)
+
+```
+# Exploring the Data Set
+df.describe()
+```
+
+![image](https://github.com/himanshucgithub/Project/assets/112814361/2e8021df-519d-47c2-ae44-7ca8b35aa2c8)
+
+```
+# Dropping the unnecessary columns
+df=df.drop(["Person ID"],axis=1)
+df
+```
+
+![image](https://github.com/himanshucgithub/Project/assets/112814361/2639bf7a-a1e6-4656-9cbe-adab47fab0b0)
+
+```
+#Checking the Null Values
+df.isna().sum()
+```
+
+![image](https://github.com/himanshucgithub/Project/assets/112814361/6f4462ab-9795-4c5f-8e6e-ad657cbb53df)
+
+#### The Data set do not have any null values, and we remove the unnecessary columns. Hence our Data Set is ready for the further analysis:
+
+```
+# Saving our Data set for further Analysis
+df.to_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Sleep_Health_and_lifestyle/Sleep_Health_and_Lifestyle.csv")
+```
+
