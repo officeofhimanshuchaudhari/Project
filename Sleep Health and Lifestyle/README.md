@@ -79,3 +79,15 @@ df.isna().sum()
 df.to_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Sleep_Health_and_lifestyle/Sleep_Health_and_Lifestyle.csv")
 ```
 
+## Questions Asked For the Data Analysis :
+* Sleep Disorder Percentage.
+* Gender Percentage in the Data using a pie chart.
+* Distribution of Age using Histogram.
+* Determine the Highest occupation in the Data Set.
+* Analyze the distriibution of the Sleep duration based on Gender.
+* Visualize the average sleep duration across different occupations using a bar chart.
+* Explore the relationship betn average sleep duration and BMI category.
+* Identify the Dominent occupation within the Male Category.
+* Find the Average Heart with the BMI category.
+
+## Results / Findings :
