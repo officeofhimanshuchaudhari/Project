@@ -102,3 +102,6 @@ df.to_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Sleep_Health
 ![Screenshot 2023-12-30 135330](https://github.com/himanshucgithub/Project/assets/112814361/0fdeacce-6557-41f9-a8c0-3059236d50a7)
 
 ![Screenshot 2023-12-30 135643](https://github.com/himanshucgithub/Project/assets/112814361/2064883b-ce3b-4377-a75a-55e5aa033a2e)
+
+## Conclusion :
+This is my project as a Data Analyst where the data is obtained from the Kaggle. The usual data processing steps are performed, including data cleaning. EDA (Exploratory Data Analysis ) techniques are applied to gain insight from the data, and the questions are formulated based on the analysis. Visualization such as bar chart, pie chart and other types of chart are created to present the findings.
