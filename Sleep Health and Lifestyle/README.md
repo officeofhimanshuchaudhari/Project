@@ -98,3 +98,6 @@ df.to_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Sleep_Health
 ![Screenshot 2023-12-30 134852](https://github.com/himanshucgithub/Project/assets/112814361/bf107f50-aaae-4176-b279-3e0760363c08)
 
 ![Screenshot 2023-12-30 135048](https://github.com/himanshucgithub/Project/assets/112814361/06294fb2-d231-4719-9b08-e0095bc35bae)
+
+![Screenshot 2023-12-30 135330](https://github.com/himanshucgithub/Project/assets/112814361/0fdeacce-6557-41f9-a8c0-3059236d50a7)
+
