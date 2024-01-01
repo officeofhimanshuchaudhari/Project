@@ -54,4 +54,65 @@ df.info()
 # Explore the data
 df.isnull().sum()
 ```
+![Screenshot 2024-01-02 010914](https://github.com/himanshucgithub/Project/assets/112814361/12a7d9d4-3d1f-4c74-a7c9-a7d96b9c7580)
+### There is no null value in the data sets, so no need of null value treatment.
 
+```
+# Explore the data Set
+df.describe()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/d508e1a7-1418-4666-8fe3-f2c3bb7d310b)
+
+```
+# Dropping the unnecessary columns :
+df.drop(["ID","ZIP Code"],axis=1,inplace=True)
+```
+
+```
+df.head(1)
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/637f8af9-827f-4d24-b8d7-ecb2bde1e9b5)
+
+```
+# 5 Number Summary
+import plotly.express as ps
+```
+
+```
+fig= ps.box(df,y = ["Age",'Experience','Income','Family','Education'])
+fig.show()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/c55f2378-2e00-495e-b89e-6917132f0ded)
+
+From the above data we can see that some values in the Experience column are having negative values an some outliers in the income columns we need to handle them.
+
+```
+#checking the types of data
+df.dtypes
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/bbc55abb-1cf5-46b0-9922-a63a7b5a22f4)
+
+```
+df.skew()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/267379ed-3c5c-4fb9-8921-f25dab0ab159)
+
+```
+# Performing the EDA
+df.hist(figsize=(20,20))
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/93fc2935-2cc7-410f-b2db-5a766afa47dd)
+
+![image](https://github.com/himanshucgithub/Project/assets/112814361/89e39f30-48d6-440e-87d8-c0f8387907a1)
+
+```
+#Performing EDA
+sns.displot(df['Experience'])
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/720808fc-49ee-4113-96f6-72c44c39a559)
+
+```
+ # Treating the Experience Columns :
+ df["Experience"].mean()
+```
+20.145
