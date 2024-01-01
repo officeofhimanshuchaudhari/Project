@@ -116,3 +116,185 @@ sns.displot(df['Experience'])
  df["Experience"].mean()
 ```
 20.145
+
+```
+# Treating the Experience Columns
+cond = df["Experience"] < 0
+negative_experience = df[cond]
+negative_experience.head()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/62879db9-ac36-41fa-bd2f-83b335447ec3)
+
+```
+negative_experience.count()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/15c39386-7298-40d2-9df6-c530b70e665c)
+
+```
+sns.displot(negative_experience["Age"])
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/89b8af48-d26a-4223-8f5b-c868d10fb448)
+
+```
+negative_experience["Experience"].mean()
+`-1.4423076923076923`
+```
+
+```
+negative_experience.size
+```
+625
+
+```
+'There are {} records wich has negative values for experience, approx {} %'.format(negative_experience.size,((negative_experience.size/df.size)*100))
+```
+There are 64 records which has negative values for experience, approx 1.04 %
+
+```
+data = df.copy()
+```
+
+```
+data.head()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/36e2d1d5-cb71-4e82-814f-0c57614a6df8)
+
+```
+# Handling the Negative data with the help of Numpy**
+import numpy as np
+```
+
+```
+data["Experience"] = np.where(data["Experience"]<0,
+                              data["Experience"].mean(),
+                              data["Experience"])
+```
+
+```
+#checking whether the data is assign or not in the data table
+cond = data["Experience"] < 0
+data[cond]
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/20f25e86-a3b6-4666-85ee-5532a1284dce)
+From the above we can see that our negarive data in the column experience has been replace with the mean value, as the above result shows us that there is no negative values present in the column.
+
+```
+# Now checking the correlation in the data
+data.corr()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/e4b002cb-ea61-44b1-8e51-f42d8bc6eebc)
+
+```
+plt.figure(figsize=(10,10))
+sns.heatmap(data.corr(),annot = True)
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/735b71a4-da47-4abe-9b90-7e2d970a07aa)
+From the above we can see that the correlation betn the age column and the experience column is more, so we have to delete one of the column depending upon the interest.
+
+```
+data.drop(["Experience"],axis=1,inplace=True)
+```
+
+```
+data.head()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/2b13091e-4791-4ad8-8dd0-533d52761111)
+
+```
+# Now Moving Towards the Education Column :
+data["Education"].unique()
+```
+array([1,2,3])
+#### 1 means - under graduate
+#### 2 means - Graduate
+#### 3 means - Working professional or higher
+#### so now converting the above data into the readable format.
+
+```
+def experience(x):
+  if x==1:
+    return "Under Graduate"
+  if x == 2:
+    return "Graduate"
+  if x == 3:
+    return "Professional"
+```
+
+```
+data["EDU"] = data["Education"].apply(experience)
+```
+
+```
+data.head()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/f55ff86b-150b-4bb5-ae5d-ac1c1d7125da)
+
+```
+data["EDU"].unique()
+```
+array(['Under Graduate', 'Graduate', 'Professional'], dtype=object)
+
+#### So here we converted the data in the education column which is in the form of 1,2,3 into direct readable column, Now we dont need the Education column in the data table, so we will drop that column.
+
+```
+data.drop(["Education"],axis=1, inplace=True)
+data.head()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/0173e611-e1af-4ebe-8434-74f64f869325)
+
+```
+education_dist = data.groupby(by="EDU")["Age"].count()
+education_dist
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/03e53dc3-e21d-4d56-9157-bf0727fabd60)
+
+```
+# plotting pie chart of the above data
+ps.pie(data, values = education_dist, names = education_dist.index, title = "Pie Chart")
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/df14d1b0-f628-4203-a61a-5b6b9a699412)
+
+Now lets handle the columns security account and CD account columns.
+
+```
+def sec (y) :
+  if(y["Securities Account"]==1) &(y["CD Account"]==1):
+    return "Hold Securities and Deposit Account"
+  if(y["Securities Account"]==0) &(y["CD Account"]==0):
+    return "Does Not hold Securities and Deposit Account"
+  if(y["Securities Account"]==1) &(y["CD Account"]==0):
+    return "Hold Securities account"
+  if(y["Securities Account"]==0) &(y["CD Account"]==1):
+    return "Hold CD Account"
+```
+
+```
+data["Account_Holder_Category"] = data.apply(sec,axis=1)
+```
+
+```
+data.head()
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/33e4592e-9898-4b61-b080-47fa9050c775)
+
+```
+values=data["Account_Holder_Category"].value_counts()
+```
+
+```
+values.index
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/8048b84a-952c-4208-9e5f-f861004f4ecc)
+
+```
+# plotting pie chart of the above data
+ps.pie (data, values = values,names= values.index, title = "Pie Chart")
+```
+![image](https://github.com/himanshucgithub/Project/assets/112814361/5f1435a6-138e-42d4-bd46-68f0f8232937)
+
+```
+#Saving Data For Further Analysis
+data.to_csv("/content/drive/MyDrive/Data Analysis End to End Projects/Bank Personal Loan Modelling/Bank Personal Loan Modelling EDA.csv")
+```
+
+
