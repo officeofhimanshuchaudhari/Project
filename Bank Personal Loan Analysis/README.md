@@ -48,4 +48,10 @@ df.shape
 # Explore the Data Sets
 df.info()
 ```
+![Screenshot 2024-01-02 010645](https://github.com/himanshucgithub/Project/assets/112814361/fcb47ba9-bccf-4e25-9046-dc8095f6a182)
+
+```
+# Explore the data
+df.isnull().sum()
+```
 
